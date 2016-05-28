@@ -3,7 +3,11 @@
 
 var vSrc = jwplayer().getPlaylist()[0].file
 
-var toHTML = 'data:text/html, \
+// Remove elements.
+document.head.parentNode.removeChild(document.head);
+document.body.parentNode.removeChild(document.body);
+
+var toHTML = '\
 <body style="text-align: center; background-color: #080808;">\
 	<video controls height="97%" preload="auto">\
 		<source src="' + vSrc + '">\
@@ -11,4 +15,4 @@ var toHTML = 'data:text/html, \
 </body>\
 '
 
-window.open(toHTML, "_blank");
+document.querySelector("html").innerHTML = toHTML;
